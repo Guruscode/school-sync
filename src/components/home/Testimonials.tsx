@@ -52,7 +52,7 @@ export const Testimonials: React.FC = () => {
                   quality={85}
                 />
               </div>
-              <p className="text-gray-600 mb-4 italic">"{testimonial.quote}"</p>
+              <p className="text-gray-600 mb-4 italic">&ldquo;{testimonial.quote}&rdquo;</p>
               <p className="font-semibold text-primary-dark">{testimonial.author}</p>
               <p className="text-gray-500">{testimonial.role}</p>
             </div>
