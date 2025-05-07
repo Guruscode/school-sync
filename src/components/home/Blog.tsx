@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface BlogPost {
   title: string;
@@ -38,7 +39,15 @@ export const Blog: React.FC = () => {
               className="bg-neutral p-6 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 animate-slide-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <img src={post.image} alt={post.title} className="w-full h-48 object-cover rounded-lg mb-4" />
+              <div className="relative w-full h-48 rounded-lg mb-4 overflow-hidden">
+                <Image 
+                  src={post.image} 
+                  alt={post.title} 
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-primary-dark">{post.title}</h3>
               <p className="text-gray-600 mb-4">{post.excerpt}</p>
               <Link href="/blog" className="text-accent hover:underline">Read More</Link>

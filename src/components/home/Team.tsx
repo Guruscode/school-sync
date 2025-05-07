@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface TeamMember {
   name: string;
   role: string;
@@ -20,11 +22,16 @@ export const Team: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, index) => (
             <div key={index} className="text-center">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-              />
+              <div className="relative w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={128}
+                  height={128}
+                  className="object-cover"
+                  quality={90}
+                />
+              </div>
               <h3 className="text-xl font-semibold text-primary-dark">{member.name}</h3>
               <p className="text-gray-600">{member.role}</p>
             </div>
